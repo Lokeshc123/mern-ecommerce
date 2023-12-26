@@ -3,7 +3,9 @@ import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 const LoginScreen = () => {
+    const navigation = useNavigation();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     return (
@@ -43,7 +45,7 @@ const LoginScreen = () => {
                 <Pressable style={styles.btn}>
                     <Text style={styles.btntxt}>Login</Text>
                 </Pressable>
-                <Pressable style={{ marginTop: 15 }}>
+                <Pressable style={{ marginTop: 15 }} onPress={() => navigation.navigate("Register")}>
                     <Text style={{ textAlign: "center", color: "gray", fontSize: 16 }}>
                         Don't have an account? <Text style={{ color: "#007FFF" }}>Sign Up</Text>
                     </Text>
